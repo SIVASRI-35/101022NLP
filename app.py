@@ -17,8 +17,8 @@ def predict():
         for i in res:
             res1=res1+i
             return render_template("res.html",res1=res1,input=input)
-    except Exception as e:
-        return e       
+    except:
+        return 'error'       
 
 if __name__ == "__main__":
     app.run(debug=True)
