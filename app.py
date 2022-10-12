@@ -3,6 +3,8 @@ import pickle
 
 app = Flask(__name__)
 
+model = pickle.load(open('t5model.pkl','rb'))
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -11,7 +13,6 @@ def home():
 def predict():
     try:
         input = request.form.get('inp')
-        model = pickle.load(open('t5model.pkl','rb'))
         res = model.predict(input)
         res1=''
         for i in res:
