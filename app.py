@@ -18,14 +18,7 @@ def predict():
             res1=res1+i
             return render_template("res.html",res1=res1,input=input)
     except:
-        input = request.form.get('inp')
-        model = pickle.load(open('t5model.pkl','rb'))
-        res = model.predict(input)
-        res1=''
-        for i in res:
-            res1=res1+i
-            return render_template("res.html",res1=res1,input=input)      
-
+        return 'exception'
 if __name__ == "__main__":
     app.run(debug=True)
 
